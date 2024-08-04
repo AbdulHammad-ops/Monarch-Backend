@@ -25,7 +25,7 @@ export class GoogleOauthController {
     console.log(`Generated Access Token: ${accessToken}`); // Debugging line
     res.cookie('jwt', accessToken);
 
-    const redirectUrl = `http://localhost:3001/auth/google/callback?token=${accessToken}`;
+    const redirectUrl = `https://monarch-frontend.onrender.com/auth/google/callback?token=${accessToken}`;
     console.log(`Redirecting to: ${redirectUrl}`); // Debugging line
     res.redirect(redirectUrl);
   }

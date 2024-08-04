@@ -25,6 +25,6 @@ export class GithubOauthController {
     res.cookie('jwt', accessToken);
 
     // Redirect to the frontend application
-    res.redirect(`http://localhost:3001/auth/github/callback?token=${accessToken}`);
+    res.redirect(`https://monarch-frontend.onrender.com/auth/github/callback?token=${accessToken}`);
   }
 }

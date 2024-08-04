@@ -40,8 +40,8 @@ export class StripeService {
       },
       line_items: [{ price, quantity: 1 }],
 
-      success_url: `http://localhost:3000/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `http://localhost:3000/failed`,
+      success_url: `https://monarch-backend-b0ib.onrender.com/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `https://monarch-backend-b0ib.onrender.com/failed`,
     });
 
     return session;

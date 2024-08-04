@@ -10,7 +10,7 @@ async function bootstrap() {
 
   // Enable CORS with specific options
   app.enableCors({
-    origin: 'http://localhost:3001', // Replace with the frontend URL or use a list of allowed origins
+    origin: 'https://monarch-frontend.onrender.com', // Replace with the frontend URL or use a list of allowed origins
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true, // If you need to allow cookies or other credentials
   });
