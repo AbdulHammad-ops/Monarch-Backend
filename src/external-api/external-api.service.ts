@@ -192,9 +192,10 @@ export class ExternalApiService {
 
   getSpleeter2StemData(fileConversionId: string): Observable<any> {
     const url = `https://vocalremover.com/api/file-conversion/${fileConversionId}`;
+    const auth = appConfig().auth;
     const headers = {
       accept: 'application/json',
-      Authorization: 'Bearer tvAmRy3BcXILlVjaP2l3ahMbGVkdltuYja372VYT12adb6a8',
+      Authorization: `Bearer ${auth.vocalRemover.vocalApiToken}`,
     };
 
     return this.httpService
