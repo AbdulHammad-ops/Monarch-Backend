@@ -76,8 +76,8 @@ export class ExternalApiService {
       auth.dolby.apiKey,
       auth.dolby.appSecret,
     );
-    await media.io.downloadFile(jwt, outputUrl, enhancedFilePath);
-    return file.filename;
+    const data = await media.io.getDownloadUrl(jwt, outputUrl);
+    return { filename: file.filename, data };
   }
 
   // vocalRemover(fileData: Express.Multer.File): Observable<AxiosResponse<any>> {
