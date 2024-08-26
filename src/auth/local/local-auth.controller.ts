@@ -13,10 +13,10 @@ export class LocalAuthController {
     private localAuthService: LocalAuthService,
   ) {}
 
-  @UseGuards(LocalAuthGuard)
   @Post('login')
+  @UseGuards(LocalAuthGuard)
   async login(@Req() req: Request, @Res({ passthrough: true }) res: Response) {
-    console.log('hello')
+    console.log('hello');
     const user = req.user as User;
     const { accessToken } = this.jwtAuthService.login(user);
     res.cookie('jwt', accessToken);
