@@ -27,7 +27,7 @@ export class LocalAuthService {
   }
 
   async createUser(createUserDto: CreateUserDto) {
-    const existing_user = await this.prisma.user.findUnique({
+    let existing_user = await this.prisma.user.findUnique({
       where: {
         email_provider_name: {
           email: createUserDto.email,
@@ -37,7 +37,18 @@ export class LocalAuthService {
     });
 
     if (existing_user) {
-      throw new BadRequestException('user already exist');
+      return new BadRequestException('user already exist');
+    }
+
+    existing_user = await this.prisma.user.findUnique({
+      where: {
+        provider_name: 'local',
+        username: createUserDto.username,
+      },
+    });
+
+    if (existing_user) {
+      return new BadRequestException('user already exist');
     }
 
     const hashedPassword = await bcrypt.hash(createUserDto.password, 10);
